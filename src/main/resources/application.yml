@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/admin?characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
+    username: root
+    password: 
+
+mybatis:
+  mapper-locations:
+  - classpath*:io/github/fpure/admin/**/*Mapper.xml

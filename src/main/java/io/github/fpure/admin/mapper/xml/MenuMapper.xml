@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.github.fpure.admin.mapper.MenuMapper">
+
+    <insert id="save" parameterType="io.github.fpure.admin.model.Menu">
+        <selectKey resultType="int" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO rbac_menu
+        (id, pid, name, seq, is_enable, is_leaf_node, is_has_sub_node)
+        VALUES
+        (#{id}, #{pid}, #{name}, #{seq}, #{isEnable}, #{isLeafNode}, #{isHasSubNode})
+    </insert>
+
+    <delete id="delete" parameterType="int">
+    	DELETE FROM rbac_menu WHERE id=#{id}
+    </delete>
+
+    <update id="update" parameterType="io.github.fpure.admin.model.Menu">
+		UPDATE rbac_menu SET
+            id=#{id},
+            pid=#{pid},
+            name=#{name},
+            seq=#{seq},
+            is_enable=#{isEnable},
+            is_leaf_node=#{isLeafNode},
+            is_has_sub_node=#{isHasSubNode}
+		WHERE id=#{id}
+    </update>
+
+    <resultMap id="result" type="io.github.fpure.admin.model.Menu">
+        <id property="id" column="id" />
+        <result property="pid" column="pid" />
+        <result property="name" column="name" />
+        <result property="seq" column="seq" />
+        <result property="isEnable" column="is_enable" />
+        <result property="isLeafNode" column="is_leaf_node" />
+        <result property="isHasSubNode" column="is_has_sub_node" />
+    </resultMap>
+
+    <sql id="dynamicWhere">
+        <where>
+            <if test="@Ognl@isNotEmpty(id)">and id=#{id}</if>
+            <if test="@Ognl@isNotEmpty(pid)">and pid=#{pid}</if>
+            <if test="@Ognl@isNotEmpty(name)">and name=#{name}</if>
+            <if test="@Ognl@isNotEmpty(seq)">and seq=#{seq}</if>
+            <if test="@Ognl@isNotEmpty(isEnable)">and is_enable=#{isEnable}</if>
+            <if test="@Ognl@isNotEmpty(isLeafNode)">and is_leaf_node=#{isLeafNode}</if>
+            <if test="@Ognl@isNotEmpty(isHasSubNode)">and is_has_sub_node=#{isHasSubNode}</if>
+        </where>
+    </sql>
+
+    <select id="getByMap" parameterType="map" resultMap="result">
+        SELECT * FROM rbac_menu
+        <include refid="dynamicWhere" />
+    </select>
+
+    <select id="getById" parameterType="int" resultMap="result">
+    	SELECT * FROM rbac_menu WHERE id=#{id}
+    </select>
+
+</mapper>
