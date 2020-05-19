@@ -1,0 +1,75 @@
+/* 布局 */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.main-box {
+  height: 100%;
+}
+
+.main-box>.main-header {
+  height: 50px;
+  background-color: #3c8dbc;
+}
+
+.main-box>.main-sidebar,
+.main-box>.main-content {
+  position: absolute;
+  top: 50px;
+  bottom: 0;
+}
+
+.main-box>.main-sidebar {
+  left: 0;
+  width: 230px;
+  background-color: #3bb9ad;
+}
+
+.main-box>.main-content {
+  left: 230px;
+  right: 0;
+  background-color: green;
+}
+
+/* 菜单 */
+.sidebar-menu {
+  border-left-width: 3px;
+  border-left-style: solid;
+  border-left-color: #3c8dbc;
+}
+
+.menu-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.menu-expand {
+  padding-left: 20px;
+}
+
+.menu-list>li>a {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 5px;
+}
+
+.menu-list>li>a>.icon-left {
+  padding-right: 5px;
+}
+
+.menu-list>li>a>.icon-right {
+  float: right;
+  padding-top: 5px;
+  padding-right: 10px;
+}
+
+.menu-list>li>a.active {
+  background-color: aqua;
+}
