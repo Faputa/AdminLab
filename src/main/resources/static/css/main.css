@@ -8,48 +8,87 @@ html, body {
 .main-box {
   height: 100%;
 }
-
-.main-box>.main-header {
+.main-box>.main-head {
   height: 50px;
-  background-color: #3c8dbc;
 }
-
-.main-box>.main-sidebar,
-.main-box>.main-content {
+.main-box>.main-body {
   position: absolute;
   top: 50px;
+  left: 0;
+  right: 0;
   bottom: 0;
 }
-
-.main-box>.main-sidebar {
-  left: 0;
-  width: 230px;
-  background-color: #3bb9ad;
+.main-box>.main-head>.head-left,
+.main-box>.main-body>.body-left {
+  height: 100%;
+  float: left;
+  transition: width 0.25s;
+}
+.main-box>.main-head>.head-right,
+.main-box>.main-body>.body-right {
+  height: 100%;
+  transition: margin-left 0.25s;
+}
+.main-box>.main-head>.head-left {
+  background-color: #367fa9;
+}
+.main-box>.main-head>.head-right {
+  background-color: #3c8dbc;
+}
+.main-box>.main-body>.body-left {
+  overflow: hidden;
+  padding-top: 2px;
+  background-color: #222d32;
+}
+.main-box>.main-body>.body-right {
+  background-color: #fff;
 }
 
-.main-box>.main-content {
-  left: 230px;
-  right: 0;
-  background-color: green;
+#rightFrame {
+  width: 100%;
+  height: 100%;
+}
+
+.main-box>.main-head>.head-left,
+.main-box>.main-body>.body-left {
+  width: 230px;
+}
+.main-box>.main-head>.head-right,
+.main-box>.main-body>.body-right {
+  margin-left: 230px;
+}
+@media (max-width: 992px) {
+  .main-box>.main-head>.head-left,
+  .main-box:not(.ignore-responsive)>.main-body>.body-left {
+    width: 0;
+  }
+  .main-box>.main-head>.head-right,
+  .main-box:not(.ignore-responsive)>.main-body>.body-right {
+    margin-left: 0;
+  }
+}
+.main-box.hide-left>.main-head>.head-left,
+.main-box.hide-left>.main-body>.body-left {
+  width: 0;
+}
+.main-box.hide-left>.main-head>.head-right,
+.main-box.hide-left>.main-body>.body-right {
+  margin-left: 0;
 }
 
 /* 菜单 */
 .sidebar-menu {
-  border-left-width: 3px;
-  border-left-style: solid;
-  border-left-color: #3c8dbc;
+  width: 230px;
+  border-left: 2px solid #3c8dbc;
 }
-
 .menu-list {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
-
 .menu-expand {
-  padding-left: 20px;
+  padding-left: 15px;
 }
-
 .menu-list>li>a {
   display: block;
   cursor: pointer;
@@ -57,19 +96,42 @@ html, body {
   color: #fff;
   height: 30px;
   line-height: 30px;
+  margin-top: 2px;
   padding-left: 5px;
 }
-
 .menu-list>li>a>.icon-left {
   padding-right: 5px;
 }
-
 .menu-list>li>a>.icon-right {
   float: right;
   padding-top: 5px;
   padding-right: 10px;
 }
+.menu-list>li>a.active,
+.menu-list>li>a:hover {
+  background-color: #2c3b41;
+}
 
-.menu-list>li>a.active {
-  background-color: aqua;
+/* 按钮 */
+.hide-left-bar {
+  color: #fff;
+  float: left;
+  padding: 15px 10px;
+  cursor: pointer;
+}
+.hide-left-bar:hover {
+  background-color: #367fa9;
+}
+.hide-left-bar>.glyphicon {
+  line-height: 20px;
+}
+
+/* logo */
+.logo {
+  height: 100%;
+  display: block;
+  background-image: url(../logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
 }

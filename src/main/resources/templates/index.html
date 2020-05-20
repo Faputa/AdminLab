@@ -1,71 +1,52 @@
 <html>
 <head>
-<title>admin</title>
+<title>Admin</title>
 <link th:href="@{/lib/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet">
 <link th:href="@{/css/main.css}" rel="stylesheet">
-<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
-<script th:src="@{/lib/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/main.js}"></script>
 </head>
 <body>
 <div class="main-box">
-<div class="main-header"></div>
-<div class="main-sidebar">
-    <div class="sidebar-menu">
-        <!-- <th:block th:include="this::menuTree(${menuTree})"></th:block> -->
-        <ul class="menu-list">
-            <li>
-                <a>
-                    <span class="icon-left glyphicon glyphicon-folder-open" aria-hidden="true"></span>
-                    <span class="icon-right glyphicon glyphicon-chevron-down"></span>
-                    <span>一级菜单</span>
-                </a>
-                <div class="menu-expand">
-                    <ul class="menu-list">
-                        <li>
-                            <a class="active">
-                                <span class="icon-left glyphicon glyphicon-folder-open" aria-hidden="true"></span>
-                                <span class="icon-right glyphicon glyphicon-chevron-down"></span>
-                                <span>二级菜单</span>
-                            </a>
-                            <div class="menu-expand">
-                                <ul class="menu-list">
-                                    <li>
-                                        <a>
-                                            <span class="icon-left glyphicon glyphicon-file" aria-hidden="true"></span>
-                                            <span>三级菜单</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
+    <div class="main-head">
+        <div class="head-left">
+            <a href="javascript:;" class="logo"></a>
+        </div>
+        <div class="head-right">
+            <div class="hide-left-bar">
+                <span class="glyphicon glyphicon-th-list"></span>
+            </div>
+        </div>
+    </div>
+    <div class="main-body">
+        <div class="body-left">
+            <div class="sidebar-menu">
+                <th:block th:include="this::menuTree(${menuTree})"></th:block>
+            </div>
+        </div>
+        <div class="body-right">
+            <iframe id="rightFrame" name="rightFrame" frameborder="0" th:src="@{/welcome.html}"></iframe>
+        </div>
     </div>
 </div>
-<div class="main-content"></div>
-</div>
-<!-- <div th:fragment="menuTree(menuTree)" th:if="${false}">
-    <ul class="nav nav-list nav-first">
-        <li th:each="menu:${menuTree}">
-            <a th:if="${menu.hasexpandMenu}" href="#">
-                <span class="icon-left glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+<div th:fragment="menuTree(menuList)" th:if="${false}">
+    <ul class="menu-list">
+        <li th:each="menu:${menuList}">
+            <a th:if="${not menu.leafNode}" href="javascript:;">
+                <span th:class="'icon-left glyphicon '+${menu.hasIcon?menu.icon:'glyphicon-folder-open'}"></span>
                 <span class="icon-right glyphicon glyphicon-chevron-down"></span>
-                <span th:text="${menu.menuName}"></span>
+                <span th:text="${menu.name}"></span>
             </a>
-            <ul th:if="${menu.hasexpandMenu}" class="nav nav-list nav-expand" hidden="hidden">
-                <li>
-                    <th:block th:include="this::menuTree(${menu.expandrenMenu})"></th:block>
-                </li>
-            </ul>
-            <a th:if="${not menu.hasexpandMenu}" th:href="@{${menu.url}}" th:target="menuFrame">
-                <span class="icon-left glyphicon glyphicon-file" aria-hidden="true"></span>
-                <span th:text="${menu.menuName}"></span> 
+            <div th:if="${not menu.leafNode}" class="menu-expand" hidden="true">
+                <th:block th:include="this::menuTree(${menu.subNodeList})"></th:block>
+            </div>
+            <a th:if="${menu.leafNode}" th:href="@{${menu.url}}" th:target="rightFrame">
+                <span th:class="'icon-left glyphicon '+${menu.hasIcon?menu.icon:'glyphicon-file'}"></span>
+                <span th:text="${menu.name}"></span> 
             </a>
         </li>
     </ul>
-</div> -->
+</div>
+<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+<script th:src="@{/lib/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
 </body>
 </html>

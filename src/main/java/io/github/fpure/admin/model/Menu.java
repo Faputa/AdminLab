@@ -2,6 +2,8 @@ package io.github.fpure.admin.model;
 
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class Menu {
     
     // ID
@@ -10,14 +12,16 @@ public class Menu {
     Long pid;
     // 菜单名
     String name;
+    // 图标
+    String icon;
+    // 链接
+    String url;
     // 排序
     Integer seq;
     // 是否启用(0禁用1启用)
     Integer isEnable;
     // 是否叶子节点(0否1是)
     Integer isLeafNode;
-    // 是否有子节点(0否1是)
-    Integer isHasSubNode;
     // 子节点列表
     List<Menu> subNodeList;
 
@@ -43,6 +47,22 @@ public class Menu {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public Integer getSeq() {
@@ -85,15 +105,7 @@ public class Menu {
         return this.isLeafNode == 1;
     }
 
-    public boolean isHasSubNode() {
-        return this.isHasSubNode == 1;
-    }
-
-    public Integer getIsHasSubNode() {
-        return isHasSubNode;
-    }
-
-    public void setIsHasSubNode(Integer isHasSubNode) {
-        this.isHasSubNode = isHasSubNode;
+    public boolean isHasIcon() {
+        return StringUtils.isNotEmpty(this.icon);
     }
 }

@@ -7,9 +7,9 @@
             SELECT LAST_INSERT_ID()
         </selectKey>
         INSERT INTO rbac_menu
-        (id,pid,name,seq,is_enable,is_leaf_node)
+        (id,pid,name,icon,url,seq,is_enable,is_leaf_node)
         VALUES
-        (#{id},#{pid},#{name},#{seq},#{isEnable},#{isLeafNode})
+        (#{id},#{pid},#{name},#{icon},#{url},#{seq},#{isEnable},#{isLeafNode})
     </insert>
 
     <delete id="delete" parameterType="long">
@@ -21,6 +21,8 @@
             id=#{id},
             pid=#{pid},
             name=#{name},
+            icon=#{icon},
+            url=#{url},
             seq=#{seq},
             is_enable=#{isEnable},
             is_leaf_node=#{isLeafNode},
@@ -31,6 +33,8 @@
         <id property="id" column="id" />
         <result property="pid" column="pid" />
         <result property="name" column="name" />
+        <result property="icon" column="icon" />
+        <result property="url" column="url" />
         <result property="seq" column="seq" />
         <result property="isEnable" column="is_enable" />
         <result property="isLeafNode" column="is_leaf_node" />
@@ -41,6 +45,8 @@
             <if test="@Ognl@isNotEmpty(id)">and id=#{id}</if>
             <if test="@Ognl@isNotEmpty(pid)">and pid=#{pid}</if>
             <if test="@Ognl@isNotEmpty(name)">and name=#{name}</if>
+            <if test="@Ognl@isNotEmpty(icon)">and icon=#{icon}</if>
+            <if test="@Ognl@isNotEmpty(url)">and url=#{url}</if>
             <if test="@Ognl@isNotEmpty(seq)">and seq=#{seq}</if>
             <if test="@Ognl@isNotEmpty(isLeafNode)">and is_leaf_node=#{isLeafNode}</if>
             <if test="@Ognl@isNotEmpty(allMenu)">and is_enable=1</if>
