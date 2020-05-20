@@ -16,7 +16,8 @@ public class MenuMapperTest {
 
     @Test
     void save() {
-        menuMapper.save(new Menu());
+        Menu memu = new Menu();
+        menuMapper.save(memu);
     }
 
     @Test

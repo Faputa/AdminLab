@@ -15,7 +15,7 @@ public class MenuService {
     @Autowired
     private MenuMapper menuMapper;
 
-    public Long save(Menu menu) {
+    public int save(Menu menu) {
         return menuMapper.save(menu);
     }
 

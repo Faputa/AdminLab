@@ -10,7 +10,7 @@ import io.github.fpure.admin.model.Menu;
 @Mapper
 public interface MenuMapper {
 
-    Long save(Menu menu);
+    int save(Menu menu);
 
     int delete(Long id);
 
