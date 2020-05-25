@@ -98,11 +98,11 @@ public class Menu {
     }
 
     public boolean isEnable() {
-        return this.isEnable == 1;
+        return this.isEnable != null && this.isEnable == 1;
     }
 
     public boolean isLeafNode() {
-        return this.isLeafNode == 1;
+        return this.isLeafNode != null && this.isLeafNode == 1;
     }
 
     public boolean isHasIcon() {
