@@ -30,8 +30,10 @@
     </div>
     <div class="main-body">
         <div class="body-left">
-            <div class="sidebar-menu">
-                <th:block th:include="this::menuTree(${menuTree})"></th:block>
+            <div class="sidebar-menu-scroll">
+                <div class="sidebar-menu">
+                    <th:block th:include="this::menuTree(${menuTree})"></th:block>
+                </div>
             </div>
         </div>
         <div class="body-right">

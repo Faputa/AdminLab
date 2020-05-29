@@ -77,9 +77,14 @@ html, body {
 }
 
 /* 菜单 */
-.sidebar-menu {
+.sidebar-menu-scroll {
+  width: 250px;
+  height: 100%;
+  overflow-x: hidden;
+}
+.sidebar-menu-scroll>.sidebar-menu {
   width: 230px;
-  border-left: 2px solid #3c8dbc;
+  border-left: 2px solid #009688;
 }
 .menu-list {
   margin: 0;
@@ -88,14 +93,15 @@ html, body {
 }
 .menu-expand {
   padding-left: 15px;
+  background-color: #16181d;
 }
 .menu-list>li>a {
   display: block;
   cursor: pointer;
   text-decoration: none;
-  color: #fff;
-  height: 30px;
-  line-height: 30px;
+  color: rgba(255,255,255,.7);
+  height: 40px;
+  line-height: 40px;
   margin-top: 2px;
   padding-left: 5px;
 }
@@ -109,7 +115,7 @@ html, body {
 }
 .menu-list>li>a.active,
 .menu-list>li>a:hover {
-  background-color: #2c3b41;
+  color: #fff;
 }
 
 /* 顶部按钮 */
