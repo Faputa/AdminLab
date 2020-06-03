@@ -84,6 +84,7 @@ html, body {
 }
 .sidebar-menu-scroll>.sidebar-menu {
   width: 230px;
+  margin-top: -2px;
   border-left: 2px solid #009688;
 }
 .menu-list {
