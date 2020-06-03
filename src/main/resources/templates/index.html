@@ -12,19 +12,11 @@
             <a href="javascript:;" class="logo"></a>
         </div>
         <div class="head-right">
-            <div class="bar hide-left-bar">
-                <span class="glyphicon glyphicon-th-list"></span>
-            </div>
+            <a class="hide-left-bar"><span class="glyphicon glyphicon-th-list"></span></a>
             <div class="right-bar-box">
-                <div class="bar">按钮1</div>
-                <div class="bar">按钮2</div>
-                <div class="bar">
-                    <img th:src="@{/user-image.png}" class="user-image" alt="用户头像">
-                    用户名
-                </div>
-                <div class="bar">
-                    <span class="glyphicon glyphicon-log-out"></span>
-                </div>
+                <a class="bar" th:href="@{/}">首页</a>
+                <a class="bar"><img th:src="@{/public/user-image.png}" class="user-image" alt="用户头像"> 用户名</a>
+                <a class="bar" th:href="@{/}"><span class="glyphicon glyphicon-log-out"></span></a>
             </div>
         </div>
     </div>

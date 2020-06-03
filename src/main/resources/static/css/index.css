@@ -120,22 +120,23 @@ html, body {
 }
 
 /* 顶部按钮 */
+.index-box>.index-head .hide-left-bar {
+  float: left;
+}
+.index-box>.index-head .hide-left-bar,
 .index-box>.index-head .bar {
   display: inline-block;
   color: #fff;
   height: 100%;
   padding: 15px 10px;
   cursor: pointer;
+  text-decoration: none;
 }
 .index-box>.index-head .bar:hover {
   background-color: #367fa9;
 }
-.index-box>.index-head .bar>.glyphicon {
+.index-box>.index-head .bar .glyphicon {
   line-height: 20px;
-}
-.index-box>.index-head .hide-left-bar {
-  float: left;
-  height: 100%;
 }
 .index-box>.index-head .right-bar-box {
   float: right;
