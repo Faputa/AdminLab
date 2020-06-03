@@ -10,10 +10,10 @@ $(function(){
 
     // 隐藏左侧按钮
     $('.hide-left-bar').click(function(event) {
-        var isShow = $('.main-box.hide-left>.main-body>.body-right').is(":visible");
+        var isShow = $('.index-box.hide-left>.index-body>.body-right').is(":visible");
         var isResp = $(window).width() < 992;
-        isResp ? $('.main-box').addClass('ignore-responsive') : $('.main-box').removeClass('ignore-responsive');
-        isShow ? $('.main-box').removeClass('hide-left') : $('.main-box').addClass('hide-left');
+        isResp ? $('.index-box').addClass('ignore-responsive') : $('.index-box').removeClass('ignore-responsive');
+        isShow ? $('.index-box').removeClass('hide-left') : $('.index-box').addClass('hide-left');
     });
 
 });

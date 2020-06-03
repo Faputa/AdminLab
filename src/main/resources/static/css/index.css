@@ -5,42 +5,42 @@ html, body {
   height: 100%;
 }
 
-.main-box {
+.index-box {
   height: 100%;
 }
-.main-box>.main-head {
+.index-box>.index-head {
   height: 50px;
 }
-.main-box>.main-body {
+.index-box>.index-body {
   position: absolute;
   top: 50px;
   left: 0;
   right: 0;
   bottom: 0;
 }
-.main-box>.main-head>.head-left,
-.main-box>.main-body>.body-left {
+.index-box>.index-head>.head-left,
+.index-box>.index-body>.body-left {
   height: 100%;
   float: left;
   transition: width 0.25s;
 }
-.main-box>.main-head>.head-right,
-.main-box>.main-body>.body-right {
+.index-box>.index-head>.head-right,
+.index-box>.index-body>.body-right {
   height: 100%;
   transition: margin-left 0.25s;
 }
-.main-box>.main-head>.head-left {
+.index-box>.index-head>.head-left {
   background-color: #367fa9;
 }
-.main-box>.main-head>.head-right {
+.index-box>.index-head>.head-right {
   background-color: #3c8dbc;
 }
-.main-box>.main-body>.body-left {
+.index-box>.index-body>.body-left {
   overflow: hidden;
   padding-top: 2px;
   background-color: #222d32;
 }
-.main-box>.main-body>.body-right {
+.index-box>.index-body>.body-right {
   background-color: #fff;
 }
 
@@ -49,30 +49,30 @@ html, body {
   height: 100%;
 }
 
-.main-box>.main-head>.head-left,
-.main-box>.main-body>.body-left {
+.index-box>.index-head>.head-left,
+.index-box>.index-body>.body-left {
   width: 230px;
 }
-.main-box>.main-head>.head-right,
-.main-box>.main-body>.body-right {
+.index-box>.index-head>.head-right,
+.index-box>.index-body>.body-right {
   margin-left: 230px;
 }
 @media (max-width: 992px) {
-  .main-box>.main-head>.head-left,
-  .main-box:not(.ignore-responsive)>.main-body>.body-left {
+  .index-box>.index-head>.head-left,
+  .index-box:not(.ignore-responsive)>.index-body>.body-left {
     width: 0;
   }
-  .main-box>.main-head>.head-right,
-  .main-box:not(.ignore-responsive)>.main-body>.body-right {
+  .index-box>.index-head>.head-right,
+  .index-box:not(.ignore-responsive)>.index-body>.body-right {
     margin-left: 0;
   }
 }
-.main-box.hide-left>.main-head>.head-left,
-.main-box.hide-left>.main-body>.body-left {
+.index-box.hide-left>.index-head>.head-left,
+.index-box.hide-left>.index-body>.body-left {
   width: 0;
 }
-.main-box.hide-left>.main-head>.head-right,
-.main-box.hide-left>.main-body>.body-right {
+.index-box.hide-left>.index-head>.head-right,
+.index-box.hide-left>.index-body>.body-right {
   margin-left: 0;
 }
 
@@ -119,28 +119,28 @@ html, body {
 }
 
 /* 顶部按钮 */
-.main-box>.main-head .bar {
+.index-box>.index-head .bar {
   display: inline-block;
   color: #fff;
   height: 100%;
   padding: 15px 10px;
   cursor: pointer;
 }
-.main-box>.main-head .bar:hover {
+.index-box>.index-head .bar:hover {
   background-color: #367fa9;
 }
-.main-box>.main-head .bar>.glyphicon {
+.index-box>.index-head .bar>.glyphicon {
   line-height: 20px;
 }
-.main-box>.main-head .hide-left-bar {
+.index-box>.index-head .hide-left-bar {
   float: left;
   height: 100%;
 }
-.main-box>.main-head .right-bar-box {
+.index-box>.index-head .right-bar-box {
   float: right;
   height: 100%;
 }
-.main-box>.main-head .user-image {
+.index-box>.index-head .user-image {
   height: 25px;
   width: 25px;
   border-radius: 50%;
