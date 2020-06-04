@@ -22,6 +22,7 @@ html, body {
 .index-box>.index-body>.body-left {
   height: 100%;
   float: left;
+  overflow: hidden;
   transition: width 0.25s;
 }
 .index-box>.index-head>.head-right,
@@ -36,7 +37,6 @@ html, body {
   background-color: #3c8dbc;
 }
 .index-box>.index-body>.body-left {
-  overflow: hidden;
   padding-top: 2px;
   background-color: #222d32;
 }
@@ -120,12 +120,9 @@ html, body {
 }
 
 /* 顶部按钮 */
-.index-box>.index-head .hide-left-bar {
-  float: left;
-}
-.index-box>.index-head .hide-left-bar,
 .index-box>.index-head .bar {
-  display: inline-block;
+  display: block;
+  float: left;
   color: #fff;
   height: 100%;
   padding: 15px 10px;
@@ -158,4 +155,14 @@ html, body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 50%;
+}
+.logo-text,
+a.logo-text {
+  display: block;
+  line-height: 50px;
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 600;
 }
