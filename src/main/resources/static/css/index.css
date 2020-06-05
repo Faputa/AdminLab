@@ -132,9 +132,6 @@ html, body {
 .index-box>.index-head .bar:hover {
   background-color: #367fa9;
 }
-.index-box>.index-head .bar .glyphicon {
-  line-height: 20px;
-}
 .index-box>.index-head .right-bar-box {
   float: right;
   height: 100%;
