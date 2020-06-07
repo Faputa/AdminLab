@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>菜单列表</title>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <th>
+                    <td>id</td>
+                    <td>pid</td>
+                    <td>菜单名</td>
+                    <td>图标</td>
+                    <td>url</td>
+                    <td>排序</td>
+                    <td>是否启用</td>
+                    <td>是否叶子节点</td>
+                </th>
+            </thead>
+            <tbody th:each="po:${pageModel.list}">
+                <tr>
+                    <td th:text="${po.id}"></td>
+                    <td th:text="${po.pid}"></td>
+                    <td th:text="${po.name}"></td>
+                    <td th:text="${po.icon}"></td>
+                    <td th:text="${po.url}"></td>
+                    <td th:text="${po.seq}"></td>
+                    <td th:text="${po.isEnable}"></td>
+                    <td th:text="${po.isLeafNode}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <th:block th:replace="include::pageNavNow"></th:block>
+    </body>
+</html>

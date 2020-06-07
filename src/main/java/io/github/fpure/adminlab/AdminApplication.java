@@ -1,4 +1,4 @@
-package io.github.fpure.admin;
+package io.github.fpure.adminlab;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

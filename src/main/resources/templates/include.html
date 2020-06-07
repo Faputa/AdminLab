@@ -1,0 +1,46 @@
+<!-- 分页片段 -->
+<th:block th:fragment="pageNav" th:with="pageNo=${pageNo}?:1,pageSize=${pageSize}?:10,totalSize=${totalSize}?:0"
+><th:block th:with="pageEnd=${(totalSize+pageSize-1)/pageSize}"
+><th:block th:with="pagePrev=${(pageNo-3 gt 1)?pageNo-3:2}"
+><th:block th:with="pageNext=${(pageNo+3 lt pageEnd)?pageNo+3:pageEnd-1}"
+><script type="text/javascript">
+function pageNav(page) {
+    document.getElementById('pageNavPageNo').value = page;
+    document.getElementById('pageNavForm').submit();
+}
+</script>
+<form id="pageNavForm" th:action="${#request.requestURI}" method="post">
+<input id="pageNavPageNo" type="hidden" name="pageNo" th:value="${pageNo}">
+<input id="pageNavPageSize" type="hidden" name="pageSize" th:value="${pageSize}">
+<th:block th:each="_,item:${param}"
+><th:block th:if="${item.current.key ne 'pageNo'}"
+><th:block th:if="${item.current.key ne 'pageSize'}"
+><input th:each="value:${item.current.value}" type="hidden" th:name="${item.current.key}" th:value="${value}">
+</th:block
+></th:block
+></th:block
+><a th:if="${pageNo gt 1}" href="javascript:pageNav(1);">首页</a>
+<th:block th:if="${pagePrev gt 2}">...</th:block>
+<th:block th:if="${pageNo gt pagePrev}"
+><a th:each="page:${#numbers.sequence(pagePrev,pageNo-1)}" th:href="'javascript:pageNav('+${page}+');'">第[[${page}]]页</a>
+</th:block
+>第[[${pageNo}]]页
+<th:block th:if="${pageNext gt pageNo}"
+><a th:each="page:${#numbers.sequence(pageNo+1,pageNext)}" th:href="'javascript:pageNav('+${page}+');'">第[[${page}]]页</a>
+</th:block
+><th:block th:if="${(pageEnd-pageNext) gt 1}">...</th:block>
+<a th:if="${pageEnd gt pageNo}" th:href="'javascript:pageNav('+${pageEnd}+');'">尾页</a>
+</form>
+</th:block
+></th:block
+></th:block
+></th:block>
+
+<!-- 分页片段用例 -->
+<!-- <th:block th:replace="this::pageNav(pageNo=5,pageSize=10,totalSize=100)"></th:block> -->
+
+<!-- 再次封装的分页片段 -->
+<th:block th:fragment="pageNavNow" th:replace="this::pageNav(pageNo=${pageModel.pageNum},pageSize=${pageModel.pageSize},totalSize=${pageModel.total})"></th:block>
+
+<!-- 再次封装的分页片段用例 -->
+<!-- <th:block th:replace="this::pageNavNow"></th:block> -->

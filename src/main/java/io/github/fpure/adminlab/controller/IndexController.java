@@ -1,4 +1,4 @@
-package io.github.fpure.admin.controller;
+package io.github.fpure.adminlab.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import io.github.fpure.admin.model.Menu;
-import io.github.fpure.admin.service.MenuService;
+import io.github.fpure.adminlab.service.MenuService;
+import io.github.fpure.adminlab.model.Menu;
 
 @Controller
 public class IndexController {

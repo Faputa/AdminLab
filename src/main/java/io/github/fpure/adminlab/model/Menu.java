@@ -1,4 +1,4 @@
-package io.github.fpure.admin.model;
+package io.github.fpure.adminlab.model;
 
 import java.util.List;
 
