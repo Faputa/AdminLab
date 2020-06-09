@@ -1,8 +1,8 @@
 <!-- 分页片段 -->
 <th:block th:fragment="pageNav" th:with="pageNo=${pageNo}?:1,pageSize=${pageSize}?:10,totalSize=${totalSize}?:0"
 ><th:block th:with="pageEnd=${(totalSize+pageSize-1)/pageSize}"
-><th:block th:with="pagePrev=${(pageNo-3 gt 1)?pageNo-3:2}"
-><th:block th:with="pageNext=${(pageNo+3 lt pageEnd)?pageNo+3:pageEnd-1}"
+><th:block th:with="pagePrev=${(pageNo-2 gt 1)?pageNo-2:2}"
+><th:block th:with="pageNext=${(pageNo+2 lt pageEnd)?pageNo+2:pageEnd-1}"
 ><script type="text/javascript">
 function pageNav(page) {
     document.getElementById('pageNavPageNo').value = page;
@@ -18,18 +18,22 @@ function pageNav(page) {
 ><input th:each="value:${item.current.value}" type="hidden" th:name="${item.current.key}" th:value="${value}">
 </th:block
 ></th:block
-></th:block
-><a th:if="${pageNo gt 1}" href="javascript:pageNav(1);">首页</a>
-<th:block th:if="${pagePrev gt 2}">...</th:block>
-<th:block th:if="${pageNo gt pagePrev}"
-><a th:each="page:${#numbers.sequence(pagePrev,pageNo-1)}" th:href="'javascript:pageNav('+${page}+');'">第[[${page}]]页</a>
-</th:block
->第[[${pageNo}]]页
-<th:block th:if="${pageNext gt pageNo}"
-><a th:each="page:${#numbers.sequence(pageNo+1,pageNext)}" th:href="'javascript:pageNav('+${page}+');'">第[[${page}]]页</a>
-</th:block
-><th:block th:if="${(pageEnd-pageNext) gt 1}">...</th:block>
-<a th:if="${pageEnd gt pageNo}" th:href="'javascript:pageNav('+${pageEnd}+');'">尾页</a>
+></th:block>
+<nav aria-label="Page navigation">
+<ul class="pagination">
+<li th:if="${pageNo eq 1}" class="disabled"><a href="javascript:;">上一页</a></li>
+<li th:if="${pageNo gt 1}"><a th:href="'javascript:pageNav('+${pageNo-1}+');'">上一页</a></li>
+<li th:if="${pageNo gt 1}"><a href="javascript:pageNav(1);">1</a></li>
+<li th:if="${pagePrev gt 2}"><a href="javascript:;">...<span class="sr-only">(current)</span></a></li>
+<li th:if="${pageNo gt pagePrev}" th:each="page:${#numbers.sequence(pagePrev,pageNo-1)}"><a th:href="'javascript:pageNav('+${page}+');'">[[${page}]]</a></li>
+<li class="active"><a href="javascript:;">[[${pageNo}]]<span class="sr-only">(current)</span></a></li>
+<li th:if="${pageNext gt pageNo}" th:each="page:${#numbers.sequence(pageNo+1,pageNext)}"><a th:href="'javascript:pageNav('+${page}+');'">[[${page}]]</a></li>
+<li th:if="${(pageEnd-pageNext) gt 1}"><a href="javascript:;">...<span class="sr-only">(current)</span></a></li>
+<li th:if="${pageEnd gt pageNo}"><a th:href="'javascript:pageNav('+${pageEnd}+');'">[[${pageEnd}]]</a></li>
+<li th:if="${pageEnd gt pageNo}"><a th:href="'javascript:pageNav('+${pageNo+1}+');'">下一页</a></li>
+<li th:if="${pageEnd eq pageNo}" class="disabled"><a href="javascript:;">下一页</a></li>
+</ul>
+</nav>
 </form>
 </th:block
 ></th:block
