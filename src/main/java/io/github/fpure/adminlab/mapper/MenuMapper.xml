@@ -17,15 +17,17 @@
     </delete>
 
     <update id="update" parameterType="io.github.fpure.adminlab.model.Menu">
-		UPDATE rbac_menu SET
-            id=#{id},
-            pid=#{pid},
-            name=#{name},
-            icon=#{icon},
-            url=#{url},
-            seq=#{seq},
-            is_enable=#{isEnable},
-            is_leaf_node=#{isLeafNode},
+        UPDATE rbac_menu SET
+        <trim suffixOverrides=",">
+            <if test="id!=null">id=#{id},</if>
+            <if test="pid!=null">pid=#{pid},</if>
+            <if test="name!=null">name=#{name},</if>
+            <if test="icon!=null">icon=#{icon},</if>
+            <if test="url!=null">url=#{url},</if>
+            <if test="seq!=null">seq=#{seq},</if>
+            <if test="isLeafNode!=null">is_enable=#{isEnable},</if>
+            <if test="allMenu!=null">is_leaf_node=#{isLeafNode},</if>
+        </trim>
 		WHERE id=#{id}
     </update>
 

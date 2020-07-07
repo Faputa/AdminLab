@@ -98,6 +98,7 @@ html, body {
 }
 .menu-list>li>a {
   display: block;
+  position: relative;
   cursor: pointer;
   text-decoration: none;
   color: rgba(255,255,255,.7);
@@ -110,9 +111,10 @@ html, body {
   padding-right: 5px;
 }
 .menu-list>li>a>.icon-right {
-  float: right;
-  padding-top: 5px;
-  padding-right: 10px;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
 }
 .menu-list>li>a.active,
 .menu-list>li>a:hover {
@@ -162,4 +164,15 @@ a.logo-text {
   text-decoration: none;
   text-align: center;
   font-weight: 600;
+}
+
+/* 一些工具样式 */
+/* 垂直居中(父子高度皆不确定) */
+.vertical-middle-box {
+  position: relative;
+}
+.vertical-middle-box>.vertical-middle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }

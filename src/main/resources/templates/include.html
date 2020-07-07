@@ -24,11 +24,11 @@ function pageNav(page) {
 <li th:if="${pageNo eq 1}" class="disabled"><a href="javascript:;">上一页</a></li>
 <li th:if="${pageNo gt 1}"><a th:href="'javascript:pageNav('+${pageNo-1}+');'">上一页</a></li>
 <li th:if="${pageNo gt 1}"><a href="javascript:pageNav(1);">1</a></li>
-<li th:if="${pagePrev gt 2}"><a href="javascript:;">...<span class="sr-only">(current)</span></a></li>
+<li th:if="${pagePrev gt 2}"><a href="javascript:;" style="cursor: default;">...</a></li>
 <li th:if="${pageNo gt pagePrev}" th:each="page:${#numbers.sequence(pagePrev,pageNo-1)}"><a th:href="'javascript:pageNav('+${page}+');'">[[${page}]]</a></li>
-<li class="active"><a href="javascript:;">[[${pageNo}]]<span class="sr-only">(current)</span></a></li>
+<li class="active"><a href="javascript:;">[[${pageNo}]]</a></li>
 <li th:if="${pageNext gt pageNo}" th:each="page:${#numbers.sequence(pageNo+1,pageNext)}"><a th:href="'javascript:pageNav('+${page}+');'">[[${page}]]</a></li>
-<li th:if="${(pageEnd-pageNext) gt 1}"><a href="javascript:;">...<span class="sr-only">(current)</span></a></li>
+<li th:if="${(pageEnd-pageNext) gt 1}"><a href="javascript:;" style="cursor: default;">...</a></li>
 <li th:if="${pageEnd gt pageNo}"><a th:href="'javascript:pageNav('+${pageEnd}+');'">[[${pageEnd}]]</a></li>
 <li th:if="${pageEnd gt pageNo}"><a th:href="'javascript:pageNav('+${pageNo+1}+');'">下一页</a></li>
 <li th:if="${pageEnd eq pageNo}" class="disabled"><a href="javascript:;">下一页</a></li>
