@@ -38,17 +38,17 @@
 <div th:fragment="menuTree(menuList)" th:if="${false}">
     <ul class="menu-list">
         <li th:each="menu:${menuList}">
-            <a th:if="${not menu.leafNode}" href="javascript:;">
+            <a th:if="${not menu.leafNode}" class="overtext" href="javascript:;">
                 <span th:class="'icon-left glyphicon '+${menu.hasIcon?menu.icon:'glyphicon-folder-open'}"></span>
                 <span class="icon-right glyphicon glyphicon-chevron-down"></span>
-                <span th:text="${menu.name}"></span>
+                <span th:text="${menu.name}" th:title="${menu.name}"></span>
             </a>
             <div th:if="${not menu.leafNode}" class="menu-expand" hidden="true">
                 <th:block th:include="this::menuTree(${menu.subNodeList})"></th:block>
             </div>
-            <a th:if="${menu.leafNode}" th:href="@{${menu.url}}" th:target="rightFrame">
+            <a th:if="${menu.leafNode}" class="overtext" th:href="@{${menu.url}}" th:target="rightFrame">
                 <span th:class="'icon-left glyphicon '+${menu.hasIcon?menu.icon:'glyphicon-file'}"></span>
-                <span th:text="${menu.name}"></span> 
+                <span th:text="${menu.name}" class="menu-tip"></span> 
             </a>
         </li>
     </ul>

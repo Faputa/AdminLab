@@ -176,3 +176,20 @@ a.logo-text {
   top: 50%;
   transform: translateY(-50%);
 }
+/* 文本溢出省略 */
+.overtext{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+/* 菜单自定义title */
+#menu-title {
+  position: absolute;
+  color: #ffffff;
+  max-width: 160px;
+  font-size: 14px;
+  padding: 4px;
+  background: rgba(40, 40, 40, 0.8);
+  border: solid 1px #e9f7f6;
+  border-radius: 5px;
+}
