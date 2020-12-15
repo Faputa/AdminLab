@@ -12,7 +12,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.HttpStatusCodeException;
+import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -35,7 +35,7 @@ public abstract class ProxyBaseController {
         RestTemplate restTemplate = new RestTemplate();
         try {
             return restTemplate.exchange(uri, HttpMethod.resolve(request.getMethod()), httpEntity, String.class);
-        } catch (HttpStatusCodeException e) {
+        } catch (RestClientResponseException e) {
             return ResponseEntity.status(e.getRawStatusCode()).headers(e.getResponseHeaders()).body(e.getResponseBodyAsString());
         }
     }
