@@ -1,4 +1,4 @@
-package io.github.fpure.adminlab.util;
+package adminlab.util;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

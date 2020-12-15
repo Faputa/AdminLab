@@ -4,4 +4,4 @@ spring:
 
 mybatis:
   mapper-locations:
-  - classpath*:io/github/fpure/adminlab/**/*Mapper.xml
+  - classpath*:mapper/*Mapper.xml

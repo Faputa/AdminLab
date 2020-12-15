@@ -1,4 +1,4 @@
-package io.github.fpure.adminlab.model;
+package adminlab.model;
 
 import java.util.List;
 
@@ -6,23 +6,23 @@ import org.apache.commons.lang3.StringUtils;
 
 public class Menu {
     
-    // ID
+    /** ID */
     Long id;
-    // 父ID
+    /** 父ID */
     Long pid;
-    // 菜单名
+    /** 菜单名 */
     String name;
-    // 图标
+    /** 图标 */
     String icon;
-    // 链接
+    /** 链接 */
     String url;
-    // 排序
+    /** 排序 */
     Integer seq;
-    // 是否启用(0禁用1启用)
+    /** 是否启用(0禁用1启用) */
     Integer isEnable;
-    // 是否叶子节点(0否1是)
+    /** 是否叶子节点(0否1是) */
     Integer isLeafNode;
-    // 子节点列表
+    /** 子节点列表 */
     List<Menu> subNodeList;
 
     public Long getId() {

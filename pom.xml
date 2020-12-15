@@ -7,9 +7,9 @@
 		<version>2.3.0.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>io.github.fpure</groupId>
+	<groupId>adminlab</groupId>
 	<artifactId>adminlab</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>demo</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -68,6 +68,7 @@
 	</dependencies>
 
 	<build>
+        <finalName>../release/${project.artifactId}-${project.version}</finalName>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>

@@ -1,4 +1,4 @@
-package io.github.fpure.adminlab.util;
+package adminlab.util;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;

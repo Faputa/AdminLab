@@ -1,4 +1,4 @@
-package io.github.fpure.adminlab.mapper;
+package adminlab.mapper;
 
 import java.util.HashMap;
 
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import io.github.fpure.adminlab.model.Menu;
+import adminlab.model.Menu;
 
 @SpringBootTest
 public class MenuMapperTest {

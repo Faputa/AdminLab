@@ -1,4 +1,4 @@
-package io.github.fpure.adminlab.service;
+package adminlab.service;
 
 import java.util.List;
 import java.util.Map;
@@ -6,8 +6,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import io.github.fpure.adminlab.mapper.MenuMapper;
-import io.github.fpure.adminlab.model.Menu;
+import adminlab.mapper.MenuMapper;
+import adminlab.model.Menu;
 
 @Service
 public class MenuService {

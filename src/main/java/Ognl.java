@@ -7,7 +7,7 @@ public class Ognl {
      * 可以用于判断String,Long,Integer,Map,Array,Collection是否为空
      * 
      * @param o Object
-     * @return boolean
+     * @return
      */
     public static boolean isEmpty(Object o) {
         if (o == null) {
@@ -32,7 +32,7 @@ public class Ognl {
      * 可以用于判断String,Long,Integer,Map,Array,Collection是否不为空
      * 
      * @param o Object
-     * @return boolean
+     * @return
      */
     public static boolean isNotEmpty(Object o) {
         return !isEmpty(o);
@@ -42,7 +42,7 @@ public class Ognl {
      * 可以用于判断是否为数值类型
      * 
      * @param o Object
-     * @return boolean
+     * @return
      */
     public static boolean isNumber(Object o) {
         if (o == null) {
@@ -61,4 +61,15 @@ public class Ognl {
         }
         return false;
     }
+
+    /**
+     * 可以用于判断是否不为数值类型
+     * 
+     * @param o Object
+     * @return
+     */
+    public static boolean isNotNumber(Object o) {
+        return !isNumber(o);
+    }
+
 }
