@@ -18,7 +18,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 public abstract class ProxyBaseController {
 
-    public ResponseEntity<String> proxy(String target, String rewrite, HttpServletRequest request) throws IOException {
+    public ResponseEntity<byte[]> proxy(String target, String rewrite, HttpServletRequest request) throws IOException {
 
         String path = request.getRequestURI().replaceFirst(Pattern.quote(rewrite), "");
         URI uri = UriComponentsBuilder.fromUriString(target).path(path).query(request.getQueryString()).build(true).toUri();
@@ -34,9 +34,9 @@ public abstract class ProxyBaseController {
         HttpEntity<String> httpEntity = new HttpEntity<>(body, headers);
         RestTemplate restTemplate = new RestTemplate();
         try {
-            return restTemplate.exchange(uri, HttpMethod.resolve(request.getMethod()), httpEntity, String.class);
+            return restTemplate.exchange(uri, HttpMethod.resolve(request.getMethod()), httpEntity, byte[].class);
         } catch (RestClientResponseException e) {
-            return ResponseEntity.status(e.getRawStatusCode()).headers(e.getResponseHeaders()).body(e.getResponseBodyAsString());
+            return ResponseEntity.status(e.getRawStatusCode()).headers(e.getResponseHeaders()).body(e.getResponseBodyAsByteArray());
         }
     }
 }

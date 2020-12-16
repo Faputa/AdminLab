@@ -14,7 +14,7 @@ import adminlab.common.ProxyBaseController;
 public class ProxyController extends ProxyBaseController {
 
     @RequestMapping("/api_xxxx/**")
-    public ResponseEntity<String> proxy(HttpServletRequest request) throws IOException {
+    public ResponseEntity<byte[]> proxy(HttpServletRequest request) throws IOException {
         return super.proxy("http://xxx.xxx.xxx.xxx:xxxx", request.getContextPath(), request);
     }
 }
