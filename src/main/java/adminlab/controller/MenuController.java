@@ -1,20 +1,16 @@
 package adminlab.controller;
 
-import java.util.HashMap;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import adminlab.common.Page;
+import adminlab.common.PageQuery;
+import adminlab.model.Menu;
 import adminlab.service.MenuService;
 import adminlab.util.WebUtil;
-import adminlab.model.Menu;
 
 @Controller
 @RequestMapping("/menu")
@@ -26,12 +22,8 @@ public class MenuController {
     @RequestMapping("/page")
     public String page(Integer pageNo, Integer pageSize) {
         HttpServletRequest request = WebUtil.getRequest();
-        if (pageNo == null) {pageNo = 1;}
-        if (pageSize == null) {pageSize = 20;}
-        PageHelper.startPage(pageNo, pageSize);
-        List<Menu> page = menuService.getByMap(new HashMap<>());
-        PageInfo<Menu> pageModel = new PageInfo<>(page);
-        request.setAttribute("pageModel", pageModel);
+        Page<Menu> page = menuService.page(new PageQuery<>(pageNo, pageSize));
+        request.setAttribute("pageModel", page);
         return "/menu/page";
     }
 

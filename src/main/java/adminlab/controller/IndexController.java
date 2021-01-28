@@ -22,7 +22,7 @@ public class IndexController {
 
     @RequestMapping({ "/", "/index" })
     public String index(HttpServletRequest request) {
-        List<Menu> menuList = menuService.getByMap(new HashMap<>());
+        List<Menu> menuList = menuService.list(null);
         request.setAttribute("menuTree", menuTree(menuList));
         return "index";
     }

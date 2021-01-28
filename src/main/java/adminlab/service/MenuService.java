@@ -1,11 +1,12 @@
 package adminlab.service;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import adminlab.common.Page;
+import adminlab.common.PageQuery;
 import adminlab.mapper.MenuMapper;
 import adminlab.model.Menu;
 
@@ -27,11 +28,16 @@ public class MenuService {
         return menuMapper.update(menu);
     }
 
-    public Menu getById(Long id) {
-        return menuMapper.getById(id);
+    public Menu get(Long id) {
+        return menuMapper.get(id);
     }
 
-    public List<Menu> getByMap(Map<String, Object> map) {
-        return menuMapper.getByMap(map);
+    public List<Menu> list(Menu menu) {
+        return menuMapper.list(menu);
     }
+
+    public Page<Menu> page(PageQuery<Menu> pq) {
+        return menuMapper.page(pq);
+    }
+
 }

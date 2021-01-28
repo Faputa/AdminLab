@@ -1,7 +1,5 @@
 package adminlab.mapper;
 
-import java.util.HashMap;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -31,16 +29,13 @@ public class MenuMapperTest {
     }
 
     @Test
-    void getById() {
-        menuMapper.getById(0L);
+    void get() {
+        menuMapper.get(0L);
     }
 
     @Test
-    void getByMap() {
-        try {
-            menuMapper.getByMap(new HashMap<>());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    void list() {
+        menuMapper.list(null);
     }
+
 }

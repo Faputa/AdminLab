@@ -55,13 +55,18 @@
         </where>
     </sql>
 
-    <select id="getByMap" parameterType="map" resultMap="result">
+    <select id="list" resultMap="result">
         SELECT * FROM rbac_menu
         <include refid="where" />
         ORDER BY seq,id
     </select>
 
-    <select id="getById" parameterType="long" resultMap="result">
+    <select id="count" resultType="int">
+        SELECT COUNT(*) FROM rbac_menu
+        <include refid="where" />
+    </select>
+
+    <select id="get" parameterType="long" resultMap="result">
     	SELECT * FROM rbac_menu WHERE id=#{id}
     </select>
 
