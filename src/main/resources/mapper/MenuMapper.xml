@@ -25,8 +25,8 @@
             <if test="icon!=null">icon=#{icon},</if>
             <if test="url!=null">url=#{url},</if>
             <if test="seq!=null">seq=#{seq},</if>
-            <if test="isLeafNode!=null">is_enable=#{isEnable},</if>
-            <if test="allMenu!=null">is_leaf_node=#{isLeafNode},</if>
+            <if test="isEnable!=null">is_enable=#{isEnable},</if>
+            <if test="isLeafNode!=null">is_leaf_node=#{isLeafNode},</if>
         </trim>
 		WHERE id=#{id}
     </update>
@@ -50,8 +50,8 @@
             <if test="@Ognl@isNotEmpty(icon)">and icon=#{icon}</if>
             <if test="@Ognl@isNotEmpty(url)">and url=#{url}</if>
             <if test="@Ognl@isNotEmpty(seq)">and seq=#{seq}</if>
+            <if test="@Ognl@isNotEmpty(isEnable)">and is_enable=#{isEnable}</if>
             <if test="@Ognl@isNotEmpty(isLeafNode)">and is_leaf_node=#{isLeafNode}</if>
-            <if test="@Ognl@isNotEmpty(allMenu)">and is_enable=1</if>
         </where>
     </sql>
 
