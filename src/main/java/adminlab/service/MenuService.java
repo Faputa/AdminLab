@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import adminlab.common.Page;
-import adminlab.common.PageQuery;
+import adminlab.common.Pageable;
 import adminlab.mapper.MenuMapper;
 import adminlab.model.Menu;
 
@@ -36,8 +36,8 @@ public class MenuService {
         return menuMapper.list(menu);
     }
 
-    public Page<Menu> page(PageQuery<Menu> pq) {
-        return menuMapper.page(pq);
+    public Page<Menu> page(Pageable<Menu> pageable) {
+        return menuMapper.page(pageable);
     }
 
 }

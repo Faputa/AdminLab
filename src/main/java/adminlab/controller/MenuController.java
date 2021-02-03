@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import adminlab.common.Page;
-import adminlab.common.PageQuery;
+import adminlab.common.Pageable;
 import adminlab.model.Menu;
 import adminlab.service.MenuService;
 import adminlab.util.WebUtil;
@@ -22,7 +22,7 @@ public class MenuController {
     @RequestMapping("/page")
     public String page(Integer pageNo, Integer pageSize) {
         HttpServletRequest request = WebUtil.getRequest();
-        Page<Menu> page = menuService.page(new PageQuery<>(pageNo, pageSize));
+        Page<Menu> page = menuService.page(new Pageable<>(pageNo, pageSize));
         request.setAttribute("pageModel", page);
         return "/menu/page";
     }

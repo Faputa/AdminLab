@@ -2,20 +2,20 @@ package adminlab.common;
 
 import org.apache.ibatis.session.RowBounds;
 
-public class PageQuery<T> {
+public class Pageable<T> {
 
     private int pageNum = 1;
     private int pageSize = 10;
     private T query;
 
-    public PageQuery() {
+    public Pageable() {
     }
 
-    public PageQuery(Integer pageNum, Integer pageSize) {
+    public Pageable(Integer pageNum, Integer pageSize) {
         this(pageNum, pageSize, null);
     }
 
-    public PageQuery(Integer pageNum, Integer pageSize, T query) {
+    public Pageable(Integer pageNum, Integer pageSize, T query) {
         this.pageNum = pageNum != null ? pageNum : 1;
         this.pageSize = pageSize != null ? pageSize : 10;
         this.query = query;
