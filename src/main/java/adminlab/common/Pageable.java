@@ -46,7 +46,7 @@ public class Pageable<T> {
     }
 
     public RowBounds getRowBounds() {
-        return new RowBounds(pageSize, (pageNum - 1) * pageSize);
+        return new RowBounds((pageNum - 1) * pageSize, pageSize);
     }
 
 }
