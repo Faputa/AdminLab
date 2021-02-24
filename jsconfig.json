@@ -1,0 +1,3 @@
+{
+  "extends": "./src/main/webapp/jsconfig.json"
+}

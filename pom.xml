@@ -107,11 +107,9 @@
 					</execution>
 				</executions>
 				<configuration>
-					<workingDirectory>src/main/webapp</workingDirectory>
+					<workingDirectory>websrc</workingDirectory>
 				</configuration>
 			</plugin>
-			<!-- https://blog.csdn.net/qq_36160730/article/details/109389098 -->
-			<!-- IGNORE -->
 		</plugins>
 	</build>
 
