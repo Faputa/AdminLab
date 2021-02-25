@@ -79,6 +79,7 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<executions>
 					<execution>
+						<?m2e execute onConfiguration?>
 						<id>npm-ci</id>
 						<phase>generate-resources</phase>
 						<goals>
@@ -92,6 +93,7 @@
 						</configuration>
 					</execution>
 					<execution>
+						<?m2e execute onConfiguration?>
 						<id>npm-run-build</id>
 						<phase>generate-resources</phase>
 						<goals>
