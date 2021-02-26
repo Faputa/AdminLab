@@ -1,6 +1,6 @@
 spring:
-  datasource:
-    url: jdbc:sqlite::resource:sqllite.db
+  profiles.active: dev
+  application.name: adminlab
 
 mybatis:
   mapper-locations:

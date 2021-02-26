@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:sqlite::resource:sqllite.db
+
+my.config:
+  devServer: true
