@@ -16,7 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import adminlab.common.ProxyBaseController;
 
 @Controller
-@ConditionalOnProperty("my.config.devServer")
+@ConditionalOnProperty("config.dev-server")
 public class ProxyDevServerController extends ProxyBaseController {
 
     @Autowired

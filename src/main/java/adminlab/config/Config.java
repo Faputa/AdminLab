@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConfigurationProperties("adminlab.config")
+@ConfigurationProperties("config")
 public class Config {
 
     /** 是否开启devServer */
