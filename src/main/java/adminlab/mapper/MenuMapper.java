@@ -2,6 +2,8 @@ package adminlab.mapper;
 
 import java.util.List;
 
+import com.github.pagehelper.PageRowBounds;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.RowBounds;
 
@@ -24,12 +26,11 @@ public interface MenuMapper {
 
     List<Menu> list(Menu menu, RowBounds rowBounds);
 
-    int count(Menu menu);
-
     default Page<Menu> page(Pageable<Menu> pageable) {
         Page<Menu> page = new Page<>(pageable.getPageNum(), pageable.getPageSize());
-        page.setList(list(pageable.getQuery(), pageable.getRowBounds()));
-        page.setTotal(count(pageable.getQuery()));
+        PageRowBounds pageRowBounds = pageable.getPageRowBounds();
+        page.setList(list(pageable.getQuery(), pageRowBounds));
+        page.setTotal(pageRowBounds.getTotal());
         return page;
     }
 

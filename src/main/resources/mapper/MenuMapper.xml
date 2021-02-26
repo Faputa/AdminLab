@@ -61,11 +61,6 @@
         ORDER BY seq,id
     </select>
 
-    <select id="count" resultType="int">
-        SELECT COUNT(*) FROM rbac_menu
-        <include refid="where" />
-    </select>
-
     <select id="get" parameterType="long" resultMap="result">
     	SELECT * FROM rbac_menu WHERE id=#{id}
     </select>

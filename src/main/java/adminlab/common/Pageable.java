@@ -1,5 +1,7 @@
 package adminlab.common;
 
+import com.github.pagehelper.PageRowBounds;
+
 import org.apache.ibatis.session.RowBounds;
 
 public class Pageable<T> {
@@ -16,8 +18,12 @@ public class Pageable<T> {
     }
 
     public Pageable(Integer pageNum, Integer pageSize, T query) {
-        this.pageNum = pageNum != null ? pageNum : 1;
-        this.pageSize = pageSize != null ? pageSize : 10;
+        if (pageNum == null) {
+            this.pageNum = 1;
+        }
+        if (pageSize == null) {
+            this.pageSize = 10;
+        }
         this.query = query;
     }
 
@@ -47,6 +53,12 @@ public class Pageable<T> {
 
     public RowBounds getRowBounds() {
         return new RowBounds((pageNum - 1) * pageSize, pageSize);
+    }
+
+    public PageRowBounds getPageRowBounds() {
+        PageRowBounds pageRowBounds = new PageRowBounds((pageNum - 1) * pageSize, pageSize);
+        pageRowBounds.setCount(true);
+        return pageRowBounds;
     }
 
 }
