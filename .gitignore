@@ -8,6 +8,7 @@ target/
 !/release/stop.sh
 !/release/status.sh
 src/main/resources/static/
+/log/
 
 ### STS ###
 .apt_generated
