@@ -9,6 +9,7 @@ target/
 !/release/status.sh
 src/main/resources/static/
 /log/
+/application*.properties
 
 ### STS ###
 .apt_generated
