@@ -74,6 +74,9 @@
 
 	<build>
         <finalName>../release/${project.artifactId}-${project.version}</finalName>
+		<filters>
+			<filter>src/main/resources/application-base.properties</filter>
+		</filters>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
