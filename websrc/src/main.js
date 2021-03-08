@@ -16,14 +16,10 @@ import '@/icons' // icon
 import '@/permission' // permission control
 
 /**
- * If you don't want to use mock-server
- * you want to use MockJs for mock api
- * you can execute: mockXHR()
- *
- * Currently MockJs will be used in the production environment,
+ * Currently MockJs will be used in the development environment,
  * please remove it before going online ! ! !
  */
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'development') {
   const { mockXHR } = require('../mock')
   mockXHR()
 }
